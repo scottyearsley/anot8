@@ -1,0 +1,22 @@
+{
+    "id": "43328bd7-aca5-4cd8-a546-e7171106cb44",
+    "title": "",
+    "url": "https://docs.google.com/drawings/d/e/2PACX-1vTWhJvElkQIk1nz_hSXeSy-pFmjbbR-8qREMFlH4rIWpgIMeaZa_P8PfMoRXXHJIehSoiF8hlWHRLCq/pub?w=1108&h=1104",
+    "hotspots": [
+        {
+            "id": "b4ac55c5-5c34-4516-8997-1cc5bb2e5263",
+            "url": "http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0",
+            "tooltip": "Some text for hover over"
+        },
+        {
+            "id": "b4ac55c5-5c34-4516-8997-1cc5bb2e5263",
+            "url": "http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0",
+            "tooltip": "Some text for hover over"
+        }
+    ],
+    "fabric": {}
+}
+
+// https://anot8.co/api/skins/
+
+// https://anot8.co/skins/43328bd7-aca5-4cd8-a546-e7171106cb44
