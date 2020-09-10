@@ -11,7 +11,7 @@
                 "run",
                 "--allow-net",
                 "-A",
-                "server.ts"
+                "server/server.ts"
             ],
             "attachSimplePort": 9229
         }
