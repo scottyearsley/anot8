@@ -11,7 +11,7 @@ router
   .get("/api/skins", (context) => {
 
     // get model -  context.request....
-    skinsController.add();
+    //skinsController.add();
 
     context.response.body = "Hello world!";
   });
