@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "dda55243-66f2-4c4f-8063-c2c68cd3a007",
+		"name": "api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Skins - add skin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "57461af6-0fd2-4d7f-8571-80b489d9f8c0",
+						"exec": [
+							"var uuid = require('uuid');\r",
+							"var id = uuid.v4();\r",
+							"\r",
+							"pm.environment.set(\"skinId\", id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{skinId}}\",\r\n    \"title\": \"\",\r\n    \"url\": \"https://docs.google.com/drawings/d/e/2PACX-1vTWhJvElkQIk1nz_hSXeSy-pFmjbbR-8qREMFlH4rIWpgIMeaZa_P8PfMoRXXHJIehSoiF8hlWHRLCq/pub?w=1108&h=1104\",\r\n    \"hotspots\": [\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        },\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        }\r\n    ],\r\n    \"fabric\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/api/skins",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"api",
+						"skins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Skins - update skin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e732005d-dd30-4157-a859-a5e70636162b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{skinId}}\",\r\n    \"title\": \"I've been updated!\",\r\n    \"url\": \"https://docs.google.com/drawings/d/e/2PACX-1vTWhJvElkQIk1nz_hSXeSy-pFmjbbR-8qREMFlH4rIWpgIMeaZa_P8PfMoRXXHJIehSoiF8hlWHRLCq/pub?w=1108&h=1104\",\r\n    \"hotspots\": [\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        },\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        }\r\n    ],\r\n    \"fabric\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/api/skins/{{skinId}}",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"api",
+						"skins",
+						"{{skinId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Skins - list skins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"43328bd7-aca5-4cd8-a546-e7171106cb44\",\r\n    \"title\": \"\",\r\n    \"url\": \"https://docs.google.com/drawings/d/e/2PACX-1vTWhJvElkQIk1nz_hSXeSy-pFmjbbR-8qREMFlH4rIWpgIMeaZa_P8PfMoRXXHJIehSoiF8hlWHRLCq/pub?w=1108&h=1104\",\r\n    \"hotspots\": [\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        },\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        }\r\n    ],\r\n    \"fabric\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/api/skins",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"api",
+						"skins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Skins - get skin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"43328bd7-aca5-4cd8-a546-e7171106cb44\",\r\n    \"title\": \"\",\r\n    \"url\": \"https://docs.google.com/drawings/d/e/2PACX-1vTWhJvElkQIk1nz_hSXeSy-pFmjbbR-8qREMFlH4rIWpgIMeaZa_P8PfMoRXXHJIehSoiF8hlWHRLCq/pub?w=1108&h=1104\",\r\n    \"hotspots\": [\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        },\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        }\r\n    ],\r\n    \"fabric\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/api/skins/{{skinId}}",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"api",
+						"skins",
+						"{{skinId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Skins - delete skin",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"43328bd7-aca5-4cd8-a546-e7171106cb44\",\r\n    \"title\": \"\",\r\n    \"url\": \"https://docs.google.com/drawings/d/e/2PACX-1vTWhJvElkQIk1nz_hSXeSy-pFmjbbR-8qREMFlH4rIWpgIMeaZa_P8PfMoRXXHJIehSoiF8hlWHRLCq/pub?w=1108&h=1104\",\r\n    \"hotspots\": [\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        },\r\n        {\r\n            \"id\": \"b4ac55c5-5c34-4516-8997-1cc5bb2e5263\",\r\n            \"url\": \"http://anot8.co/image/4cf3eb6e-8f67-4f2e-8da7-9a13076f00e0\",\r\n            \"tooltip\": \"Some text for hover over\"\r\n        }\r\n    ],\r\n    \"fabric\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/api/skins/{{skinId}}",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"api",
+						"skins",
+						"{{skinId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
