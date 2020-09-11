@@ -1,9 +1,9 @@
-import { Skin } from "../models/Skin.ts";
+import { Skin } from '../models/Models.ts';
 
 export interface ISkinRepository {
   add: (skin: Skin) => Skin;
   list: () => Skin[];
-  get: (id: string) => Skin;
-  update: (skin: Skin) => Skin;
-  delete: (skin: Skin) => void;
+  get: (id: string) => Skin | null;
+  update: (skin: Skin) => Skin | null;
+  delete: (id: string) => Skin | null;
 }

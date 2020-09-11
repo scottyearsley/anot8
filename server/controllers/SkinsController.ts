@@ -1,5 +1,5 @@
-import { Skin } from "../models/Skin.ts";
-import { ISkinRepository } from "../repository/ISkinRepository.ts";
+import { Skin } from '../models/Models.ts';
+import { ISkinRepository } from '../repository/ISkinRepository.ts';
 
 export class SkinsController {
   _skinRepository: ISkinRepository;
@@ -9,24 +9,22 @@ export class SkinsController {
   }
 
   list = () => {
-    return [
-      { id: "abcdefg", title: "Skinny1" },
-      { id: "hijklmn", title: "Skinny2" },
-    ];
+    return this._skinRepository.list();
   };
 
   add = (skin: Skin) => {
-    return skin;
+    return this._skinRepository.add(skin);
   };
 
   get = (id: string) => {
-    return { id: "abcdefg", title: "Test Skin" };
+    return this._skinRepository.get(id);
   };
 
   update = (skin: Skin) => {
-    return skin;
+    return this._skinRepository.update(skin);
   };
 
   delete = (id: string) => {
+    return this._skinRepository.delete(id);
   };
 }
