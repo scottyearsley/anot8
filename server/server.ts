@@ -1,29 +1,51 @@
+import {
+  Application,
+  send,
+  Router,
+  Status,
+  Context,
+} from "https://deno.land/x/oak/mod.ts";
+import { SkinsController } from "./controllers/SkinsController.ts";
+import { FileSkinRepository } from "./repository/FileSkinRepository.ts";
+import { ISkinRepository } from "./repository/ISkinRepository.ts";
 
-import { Application, send, Router } from "https://deno.land/x/oak/mod.ts";
-import { SkinsController } from './controllers/SkinsController';
-
-const skinsController = new SkinsController();
+const skinRepository: ISkinRepository = new FileSkinRepository();
+const skinsController = new SkinsController(skinRepository);
 
 const app = new Application();
 
 const router = new Router();
 router
-  .get("/api/skins", (context) => {
+  .get("/api/skins", (ctx) => { //list
+    const skins = skinsController.list();
 
-    // get model -  context.request....
-    skinsController.add();
+    if (skins) {
+      ctx.response.body = skins;
+    }
+  })
+  .get("/api/skins/:id", (ctx) => {
+    if (ctx.params && ctx.params.id) {
+      const skin = skinsController.get(ctx.params.id);
 
-    context.response.body = "Hello world!";
+      if (skin) {
+        ctx.response.body = skin;
+      }
+    }
+  })
+  .post("/api/skins", async (ctx) => {
+    const body = ctx.request.hasBody ? ctx.request.body() : null;
+    let skin = await body?.value; //this deserializes the body to json but can throw, this is the happy path
+
+    skin = skinsController.add(skin);
+    ctx.response.body = skin; //setting the response body automatically creates a 200 response
+  })
+  .put("/api/skins/:id", async (ctx) => {
+    const body = ctx.request.hasBody ? ctx.request.body() : null;
+    let skin = await body?.value; //this deserializes the body to json but can throw, this is the happy path
+
+    skin = skinsController.update(skin);
+    ctx.response.body = skin; //setting the response body automatically creates a 200 response
   });
-  // .get("/book", (context) => {
-  //   context.response.body = Array.from(books.values());
-  // })
-  // .get("/book/:id", (context) => {
-  //   if (context.params && context.params.id && books.has(context.params.id)) {
-  //     context.response.body = books.get(context.params.id);
-  //   }
-  // });
-
 
 app.use(router.routes());
 app.use(router.allowedMethods());
@@ -35,4 +57,4 @@ app.use(async (context) => {
   });
 });
 
-await app.listen({port: 8088});
+await app.listen({ port: 8088 });
