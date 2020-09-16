@@ -1,3 +1,4 @@
+
 export interface Skin {
     id: string,
     title?: string,
@@ -8,6 +9,6 @@ export interface Skin {
 
 export interface Hotspot {
     id: string,
-    url: string,
+    url?: string,
     tooltip?: string
 }
